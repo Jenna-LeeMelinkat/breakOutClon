@@ -5,15 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5c6a9788-742a-40f5-acb7-c65923d44af2" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/Ball.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Brick.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Configuration.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/GameLogic.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/GameObject.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/GameState.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Paddle.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/View.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Ball.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Ball.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -46,6 +38,8 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
+    "git-widget-placeholder": "main",
+    "last_opened_file_path": "/Users/juju/Documents/VProg/breakoutclone/breakOutClon",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -62,6 +56,7 @@
       <option name="presentableId" value="Default" />
       <updated>1683717956103</updated>
       <workItem from="1683717959576" duration="6777000" />
+      <workItem from="1683726321669" duration="26000" />
     </task>
     <servers />
   </component>

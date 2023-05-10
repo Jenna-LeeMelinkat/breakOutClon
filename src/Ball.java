@@ -1,5 +1,8 @@
 import java.awt.*;
 
+/**
+ * Hello World
+ */
 public class Ball extends GameObject{
     private Integer xVelocity;
     private Integer yVelocity;
