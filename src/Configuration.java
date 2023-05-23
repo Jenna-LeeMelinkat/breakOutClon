@@ -9,7 +9,7 @@ public class Configuration {
         public static final int FIELD_X_SIZE = 320;
         public static final int FIELD_Y_SIZE = 320;
         // von : public static final int PADDLE_Y_POSITION = FIELD_Y_SIZE  20; geändert
-        public static final int PADDLE_Y_POSITION = 20;
+        public static final int PADDLE_Y_POSITION = FIELD_Y_SIZE - 20;
         public static final int PADDLE_X_SIZE = 32;
         public static final int PADDLE_Y_SIZE = 8;
         public static final int PADDLE_VELOCITY = 2;

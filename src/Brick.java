@@ -1,4 +1,5 @@
 import java.awt.*;
+
 /**
  * Die Klasse Brick ist ein Untertyp von GameObject und repräsentiert einen Ziegelstein im Spiel.
  *
@@ -48,4 +49,8 @@ public class Brick extends GameObject {
 
     }
 
-}
+
+    public void render(Graphics graphics) {
+        graphics.setColor(color);
+        graphics.fillRect(xPosition - xSize / 2, yPosition - ySize / 2, xSize, ySize); }
+    }

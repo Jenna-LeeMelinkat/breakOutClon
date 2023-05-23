@@ -24,7 +24,7 @@ public class GameObject {
     protected Integer ySize;
 
     // Die Farbe des Objekts
-    private java.awt.Color color;
+    protected java.awt.Color color;
 
     /**
      * Konstruktor für die Klasse GameObject.
