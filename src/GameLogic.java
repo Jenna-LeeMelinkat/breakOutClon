@@ -45,7 +45,8 @@ public class GameLogic extends JPanel {
 
     }
 
-    @Override public void paintComponent(Graphics graphics) {
+    @Override
+    public void paintComponent(Graphics graphics) {
         // paint panel
         super.paintComponent(graphics);
         // configure rendering pipeline: Enable antialiasing and high render quality
@@ -61,4 +62,32 @@ public class GameLogic extends JPanel {
         // synchronize graphics state
         Toolkit.getDefaultToolkit().sync();
     }
+
+    counter = brickanzahl
+
+while schleife
+    counter > 0
+
+    brickanzahl = counter
+
+    fensterbreite-(abstandLinks+abstandRechts) = fensterbreiteFuerBricks;
+    fensterbreiteFuerBricks / brickbreite = passendeBricksInBreite;
+   if     brickanzahl < passendeBricksInBreite
+
+    brickanzahl * brickbreite = insgesamtebrickbreite
+    fensterbreiteFuerBricks - insgesamtebrickbreite = kompletterAbstand;
+    kompletterAbstand/ (brickanzahl-1)
+
+            else
+
+    fensterbreiteFuerBricks - (passendeBricksInBreite* brickbreite) = kompletterAbstand
+    kompletterAbstand/ (passendeBricksInBreite-1)
+
+    counter - passendeBricksInBreite
+
+    counter > 0
+    ypos andern
+
+
+// if passendeBricksInBreite < brickanzahl
 }
