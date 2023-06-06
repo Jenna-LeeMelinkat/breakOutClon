@@ -6,8 +6,8 @@
   <component name="ChangeListManager">
     <list default="true" id="5c6a9788-742a-40f5-acb7-c65923d44af2" name="Changes" comment="party hard">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Configuration.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Configuration.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/GameLogic.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GameLogic.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -64,6 +64,7 @@
       <workItem from="1684240878827" duration="596000" />
       <workItem from="1684397275985" duration="417000" />
       <workItem from="1684845377859" duration="5139000" />
+      <workItem from="1686064452938" duration="8946000" />
     </task>
     <task id="LOCAL-00001" summary="Test Commit">
       <created>1683726372848</created>
@@ -79,7 +80,21 @@
       <option name="project" value="LOCAL" />
       <updated>1683818046865</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="party hard">
+      <created>1686065941155</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1686065941155</updated>
+    </task>
+    <task id="LOCAL-00004" summary="party hard">
+      <created>1686066171781</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1686066171782</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -99,6 +114,7 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Test Commit" />
     <MESSAGE value="JavaDoc" />
-    <option name="LAST_COMMIT_MESSAGE" value="JavaDoc" />
+    <MESSAGE value="party hard" />
+    <option name="LAST_COMMIT_MESSAGE" value="party hard" />
   </component>
 </project>

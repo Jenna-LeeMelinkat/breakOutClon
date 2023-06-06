@@ -38,9 +38,61 @@ public class GameLogic extends JPanel {
         this.paddle = new Paddle(this,160,Configuration.PADDLE_Y_POSITION, Configuration.PADDLE_X_SIZE, Configuration.PADDLE_Y_SIZE, Color.gray);
 
 
-        for(int i=0;i<11;i++){
-            Brick brick = new Brick(this, i * 10, i,Configuration.BRICK_X_SIZE, Configuration.BRICK_Y_SIZE, Color.red);
+        /*for(int i=0;i< 11;i++) {
+
+            Brick brick = new Brick(this, i * 10, i, Configuration.BRICK_X_SIZE, Configuration.BRICK_Y_SIZE, Color.red);
             bricks.add(brick);
+        }*/
+
+        int counter = Configuration.BRICK_SCORE;
+        while (counter > 0) {
+            System.out.println(counter);
+            int abstandLinks = 10;
+            int abstandRechts = 10;
+            int YPosBrick = (Configuration.BRICK_Y_SIZE / 2);
+
+            int fensterbreiteFuerBricks = Configuration.FIELD_X_SIZE - (abstandLinks + abstandRechts);
+            int passendeBricksInBreite = fensterbreiteFuerBricks / Configuration.BRICK_X_SIZE;
+            if (counter == 1){
+                int kompletterAbstand =  fensterbreiteFuerBricks - Configuration.BRICK_X_SIZE;
+                int einzelAbstand = kompletterAbstand / 2;
+                abstandLinks =+ einzelAbstand;
+                Brick brick = new Brick(this, abstandLinks, YPosBrick,Configuration.BRICK_X_SIZE, Configuration.BRICK_Y_SIZE, Color.red);
+                bricks.add(brick);
+                counter = 0;
+
+
+            }
+            //2
+            if (counter < passendeBricksInBreite && counter > 1) {
+
+                int insgesamtebrickbreite = counter * Configuration.BRICK_X_SIZE;
+                int kompletterAbstand = fensterbreiteFuerBricks - insgesamtebrickbreite;
+
+                int einzelAbstand = kompletterAbstand / counter -1;
+                for(int i=0;i<counter - 1;i++){
+
+                    Brick brick = new Brick(this, abstandLinks, YPosBrick,Configuration.BRICK_X_SIZE, Configuration.BRICK_Y_SIZE, Color.red);
+                    bricks.add(brick);
+                    abstandLinks =+ (einzelAbstand + Configuration.BRICK_X_SIZE);
+                    counter = counter - 1;
+
+                }
+                YPosBrick =+ ((Configuration.BRICK_Y_SIZE / 2) + Configuration.BRICK_Y_SIZE);
+                //4
+            } else if(counter >= passendeBricksInBreite){
+                int kompletterAbstand = fensterbreiteFuerBricks - (passendeBricksInBreite * Configuration.BRICK_X_SIZE);
+                int einzelAbstand = kompletterAbstand / (passendeBricksInBreite - 1);
+                for(int i=0;i<passendeBricksInBreite - 1;i++){
+
+                    Brick brick = new Brick(this, abstandLinks, YPosBrick,Configuration.BRICK_X_SIZE, Configuration.BRICK_Y_SIZE, Color.red);
+                    bricks.add(brick);
+                    abstandLinks =+ (einzelAbstand + Configuration.BRICK_X_SIZE);
+                    counter = counter - 1;
+
+                }
+                YPosBrick =+ ((Configuration.BRICK_Y_SIZE / 2) + Configuration.BRICK_Y_SIZE);
+            }
         }
 
     }
@@ -63,30 +115,14 @@ public class GameLogic extends JPanel {
         Toolkit.getDefaultToolkit().sync();
     }
 
-    counter = brickanzahl
 
-while schleife
-    counter > 0
 
-    brickanzahl = counter
 
-    fensterbreite-(abstandLinks+abstandRechts) = fensterbreiteFuerBricks;
-    fensterbreiteFuerBricks / brickbreite = passendeBricksInBreite;
-   if     brickanzahl < passendeBricksInBreite
 
-    brickanzahl * brickbreite = insgesamtebrickbreite
-    fensterbreiteFuerBricks - insgesamtebrickbreite = kompletterAbstand;
-    kompletterAbstand/ (brickanzahl-1)
 
-            else
 
-    fensterbreiteFuerBricks - (passendeBricksInBreite* brickbreite) = kompletterAbstand
-    kompletterAbstand/ (passendeBricksInBreite-1)
 
-    counter - passendeBricksInBreite
 
-    counter > 0
-    ypos andern
 
 
 // if passendeBricksInBreite < brickanzahl
