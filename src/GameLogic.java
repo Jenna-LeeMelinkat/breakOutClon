@@ -1,5 +1,9 @@
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -25,7 +29,10 @@ public class GameLogic extends JPanel {
     private Ball ball;
 
     // Der aktuelle Zustand des Spiels (z.B. laufend, beendet)
-    private GameState game;
+    private GameState state;
+
+    //Zeitmesser
+    private Timer timer;
 
     /**
      * Konstruktor für die Klasse GameLogic.
@@ -114,6 +121,27 @@ public class GameLogic extends JPanel {
         // synchronize graphics state
         Toolkit.getDefaultToolkit().sync();
     }
+
+    //Startet den Timer
+    public void start() {
+        state = GameState.RUNNING;
+        timer = new Timer(Configuration.LOOP_PERIOD, new GameLoop());
+        timer.start(); }
+
+    //Gibt onTick im Terminal aus und bewegt ball und paddle, zeichnet im Anschluss alle Komponenten neu
+    private void onTick() {
+        System.out.println("onTick");
+        ball.move();
+        paddle.move();
+        repaint();
+    }
+
+    private class GameLoop implements ActionListener { @Override public void actionPerformed(ActionEvent e) { onTick(); } }
+
+    private class BreakoutKeyAdapter extends KeyAdapter {
+        @Override
+        public void keyReleased(KeyEvent event)
+        { onKeyReleased(event); } @Override public void keyPressed(KeyEvent event) { onKeyPressed(event); } }
 
 
 

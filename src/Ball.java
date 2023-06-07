@@ -5,7 +5,7 @@ import java.awt.*;
  * @author Jenna-Lee Melinkat
  * @author Julian Hahnefeld
  */
-public class Ball extends GameObject{
+public class Ball extends GameObject {
     // Die x- und y-Geschwindigkeit des Balls
     private Integer xVelocity;
     private Integer yVelocity;
@@ -16,9 +16,9 @@ public class Ball extends GameObject{
      * @param gameLogic die Spiellogik, zu der der Ball gehört
      * @param xPosition die X-Koordinate der oberen linken Ecke des Balls
      * @param yPosition die Y-Koordinate der oberen linken Ecke des Balls
-     * @param xSize die Breite des Balls
-     * @param ySize die Höhe des Balls
-     * @param color die Farbe des Balls
+     * @param xSize     die Breite des Balls
+     * @param ySize     die Höhe des Balls
+     * @param color     die Farbe des Balls
      */
     public Ball(GameLogic gameLogic, int xPosition, int yPosition, int xSize, int ySize, Color color) {
         super(gameLogic, xPosition, yPosition, xSize, ySize, color);
@@ -41,6 +41,7 @@ public class Ball extends GameObject{
      * @return die x-Geschwindigkeit des Balls
      */
     public Integer getxVelocity() {
+        xVelocity = 2;
         return xVelocity;
     }
 
@@ -57,4 +58,21 @@ public class Ball extends GameObject{
         graphics.setColor(color);
         graphics.fillOval(xPosition - xSize / 2, yPosition - ySize / 2, xSize, ySize);
     }
+
+    public void move() {
+        xPosition += xVelocity;
+        if (xPosition < 0) {
+            xVelocity = -xVelocity;
+        } else if (xPosition >= Configuration.FIELD_X_SIZE) {
+            xVelocity = -xVelocity;
+        }
+
+        yPosition += yVelocity;
+        if (yPosition < 0) {
+            yVelocity = -yVelocity;
+        } else if (yPosition >= Configuration.FIELD_Y_SIZE) {
+            yVelocity = -yVelocity;
+        }
+    }
 }
+

@@ -25,5 +25,8 @@ public class Breakout {
         // show window
         frame.setVisible(true);
 
+        //starts the game
+        gameLogic.start();
+
     }
 }

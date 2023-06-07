@@ -36,4 +36,15 @@ public class Paddle extends GameObject {
         graphics.setColor(color);
         graphics.fillRect(xPosition - xSize / 2, yPosition - ySize / 2, xSize, ySize);
     }
+
+    public void move() {
+        xPosition += xVelocity;
+        int xHalf = xSize / 2;
+        if (xPosition < xHalf) {
+            xPosition = xHalf;
+        } else if (xPosition >= Configuration.FIELD_X_SIZE - xHalf) {
+            xPosition = Configuration.FIELD_Y_SIZE - xHalf;
+        }
+    }
+
 }
