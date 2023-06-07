@@ -32,12 +32,20 @@ public class Paddle extends GameObject {
         this.xVelocity = xVelocity;
     }
 
+    public Integer getxVelocity(Integer xVelocity) {
+        xVelocity = 0;
+        return xVelocity;
+    }
+
     public void render(Graphics graphics) {
         graphics.setColor(color);
         graphics.fillRect(xPosition - xSize / 2, yPosition - ySize / 2, xSize, ySize);
     }
 
     public void move() {
+        if(xVelocity ==null){
+            xVelocity = 1;
+        }
         xPosition += xVelocity;
         int xHalf = xSize / 2;
         if (xPosition < xHalf) {

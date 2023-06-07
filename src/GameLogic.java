@@ -39,10 +39,15 @@ public class GameLogic extends JPanel {
      *
      */
     public GameLogic(){
+        ballCount = Configuration.BALL_COUNT_INITIAL;
+
         // set panel size
         setPreferredSize(new Dimension(Configuration.FIELD_X_SIZE, Configuration.FIELD_Y_SIZE));
         this.ball = new Ball(this, 160,160,Configuration.BALL_X_SIZE,Configuration.BALL_Y_SIZE,Color.black);
         this.paddle = new Paddle(this,160,Configuration.PADDLE_Y_POSITION, Configuration.PADDLE_X_SIZE, Configuration.PADDLE_Y_SIZE, Color.gray);
+
+        setFocusable(true);
+        addKeyListener(new BreakoutKeyAdapter());
 
 
         /*for(int i=0;i< 11;i++) {
@@ -53,7 +58,7 @@ public class GameLogic extends JPanel {
 
         int counter = Configuration.BRICK_SCORE;
         while (counter > 0) {
-            System.out.println(counter);
+            //System.out.println(counter);
             int abstandLinks = 10;
             int abstandRechts = 10;
             int YPosBrick = (Configuration.BRICK_Y_SIZE / 2);
@@ -126,22 +131,79 @@ public class GameLogic extends JPanel {
     public void start() {
         state = GameState.RUNNING;
         timer = new Timer(Configuration.LOOP_PERIOD, new GameLoop());
-        timer.start(); }
+
+        timer.start();}
 
     //Gibt onTick im Terminal aus und bewegt ball und paddle, zeichnet im Anschluss alle Komponenten neu
     private void onTick() {
-        System.out.println("onTick");
         ball.move();
         paddle.move();
+
+        Rectangle ballHitBox = ball.getHitBox();
+        Rectangle nextX = new Rectangle(ballHitBox);
+        nextX.setLocation(nextX.x + ball.getxVelocity(), nextX.y);
+        Rectangle nextY = new Rectangle(ballHitBox);
+        nextY.setLocation(nextY.x, nextY.y + ball.getyVelocity());
+
+        Brick hitBrick = null;
+        for (Brick brick : bricks) {
+            if (brick.getHitBox().intersects(nextX)) { // hit in the west or east ball.setVelocity(-ball.getXVelocity(), ball.getYVelocity()); hitBrick = brick;
+                break;
+            }
+            if (brick.getHitBox().intersects(nextY)) { // hit in the north or south ball.setVelocity(ball.getXVelocity(), -ball.getYVelocity()); hitBrick = brick;
+                break;
+            } }
+        if (hitBrick != null) { // if hit brick then remove it and score
+            bricks.remove(hitBrick);
+            score += Configuration.BRICK_SCORE; }
+
+        // check physics and rules
+        if (ball.getHitBox().intersects(paddle.getHitBox())) { // ball hits paddle
+            ball.setVelocity(ball.getxVelocity(), -ball.getyVelocity());
+        } else if (ball.getY() > Configuration.FIELD_Y_SIZE - 5) { // ball is lost // reduce number of balls
+            System.out.println(ballCount);
+            --ballCount;
+            if (ballCount <= 0) { // no balls left
+                state = GameState.GAME_OVER;
+                System.out.printf("Game over: You lost. Score = %d%n", score); System.exit(-1);
+            } else { restartWithNewBall();
+            } }
         repaint();
     }
 
-    private class GameLoop implements ActionListener { @Override public void actionPerformed(ActionEvent e) { onTick(); } }
+    public void restartWithNewBall(){
+
+            paddle.setxVelocity(0);
+            this.ball = new Ball(this, paddle.xPosition , paddle.yPosition - ((Configuration.PADDLE_Y_SIZE + Configuration.BALL_Y_SIZE)/2),Configuration.BALL_X_SIZE,Configuration.BALL_Y_SIZE,Color.black);
+            System.out.println("blub");
+            this.ball.setVelocity(-1,-1);
+
+
+
+
+    }
+
+    private class GameLoop implements ActionListener {
+        @Override
+        public void actionPerformed(ActionEvent e) { onTick(); } }
 
     private class BreakoutKeyAdapter extends KeyAdapter {
         @Override
         public void keyReleased(KeyEvent event)
-        { onKeyReleased(event); } @Override public void keyPressed(KeyEvent event) { onKeyPressed(event); } }
+        { onKeyReleased(event); } @Override
+
+        public void keyPressed(KeyEvent event) { onKeyPressed(event); } }
+
+    public void onKeyPressed(KeyEvent event) {
+        int key = event.getKeyCode();
+        if (key == KeyEvent.VK_LEFT) { paddle.setxVelocity(-Configuration.PADDLE_VELOCITY);
+        }
+        if (key == KeyEvent.VK_RIGHT) { paddle.setxVelocity(Configuration.PADDLE_VELOCITY);
+        } }
+    public void onKeyReleased(KeyEvent event) {
+        int key = event.getKeyCode();
+        if (key == KeyEvent.VK_LEFT || key == KeyEvent.VK_RIGHT) { paddle.setxVelocity(0);
+        } }
 
 
 

@@ -41,7 +41,7 @@ public class Ball extends GameObject {
      * @return die x-Geschwindigkeit des Balls
      */
     public Integer getxVelocity() {
-        xVelocity = 2;
+        xVelocity = Configuration.BALL_VELOCITY_MAX;
         return xVelocity;
     }
 
@@ -51,6 +51,7 @@ public class Ball extends GameObject {
      * @return die y-Geschwindigkeit des Balls
      */
     public Integer getyVelocity() {
+        yVelocity = Configuration.BALL_VELOCITY_MAX;
         return yVelocity;
     }
 
@@ -60,18 +61,32 @@ public class Ball extends GameObject {
     }
 
     public void move() {
+
+        if (xVelocity == null || yVelocity == null){
+            xVelocity = 1;
+            yVelocity = 1;
+        }
         xPosition += xVelocity;
         if (xPosition < 0) {
+            System.out.println("anderer Rand!");
+
             xVelocity = -xVelocity;
-        } else if (xPosition >= Configuration.FIELD_X_SIZE) {
+        }
+        if (xPosition >= Configuration.FIELD_X_SIZE) {
+            System.out.println("Rand!");
+
             xVelocity = -xVelocity;
         }
 
         yPosition += yVelocity;
         if (yPosition < 0) {
             yVelocity = -yVelocity;
-        } else if (yPosition >= Configuration.FIELD_Y_SIZE) {
+        }
+        if (yPosition >= Configuration.FIELD_Y_SIZE) {
+            System.out.println("Party!");
+
             yVelocity = -yVelocity;
+
         }
     }
 }
