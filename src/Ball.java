@@ -41,7 +41,7 @@ public class Ball extends GameObject {
      * @return die x-Geschwindigkeit des Balls
      */
     public Integer getxVelocity() {
-        xVelocity = Configuration.BALL_VELOCITY_MAX;
+        //xVelocity = Configuration.BALL_VELOCITY_MAX;
         return xVelocity;
     }
 
@@ -51,7 +51,7 @@ public class Ball extends GameObject {
      * @return die y-Geschwindigkeit des Balls
      */
     public Integer getyVelocity() {
-        yVelocity = Configuration.BALL_VELOCITY_MAX;
+        //yVelocity = Configuration.BALL_VELOCITY_MAX;
         return yVelocity;
     }
 

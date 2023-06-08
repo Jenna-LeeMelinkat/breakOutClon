@@ -143,7 +143,10 @@ public class GameLogic extends JPanel {
         Rectangle nextX = new Rectangle(ballHitBox);
 
         //nextX.setLocation(nextX.x, nextX.y + ball.getyVelocity());
-        nextY.setLocation(nextY.x, nextY.y - 1 );
+        //nextY.setLocation(nextY.x, nextY.y - 1 );
+
+        nextX.setLocation(nextX.x + ball.getxVelocity(), nextX.y);
+        nextY.setLocation(nextY.x, nextY.y + ball.getyVelocity());
 
         //hello world
 
