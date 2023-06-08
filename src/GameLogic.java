@@ -145,6 +145,8 @@ public class GameLogic extends JPanel {
         //nextX.setLocation(nextX.x, nextX.y + ball.getyVelocity());
         nextY.setLocation(nextY.x, nextY.y - 1 );
 
+        //hello world
+
         Brick hitBrick = null;
         for (Brick brick : bricks) {
             if (brick.getHitBox().intersects(nextX)) { // hit in the west or east
