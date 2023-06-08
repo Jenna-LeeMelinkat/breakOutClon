@@ -131,7 +131,7 @@ public class GameLogic extends JPanel {
     public void start() {
         state = GameState.RUNNING;
         timer = new Timer(Configuration.LOOP_PERIOD, new GameLoop());
-
+        score = 0;
         timer.start();}
 
     //Gibt onTick im Terminal aus und bewegt ball und paddle, zeichnet im Anschluss alle Komponenten neu
@@ -140,22 +140,31 @@ public class GameLogic extends JPanel {
         paddle.move();
 
         Rectangle ballHitBox = ball.getHitBox();
-        Rectangle nextX = new Rectangle(ballHitBox);
-        nextX.setLocation(nextX.x + ball.getxVelocity(), nextX.y);
         Rectangle nextY = new Rectangle(ballHitBox);
-        nextY.setLocation(nextY.x, nextY.y + ball.getyVelocity());
+        Rectangle nextX = new Rectangle(ballHitBox);
+
+        //nextX.setLocation(nextX.x, nextX.y + ball.getyVelocity());
+        nextY.setLocation(nextY.x, nextY.y - 1 );
 
         Brick hitBrick = null;
         for (Brick brick : bricks) {
-            if (brick.getHitBox().intersects(nextX)) { // hit in the west or east ball.setVelocity(-ball.getXVelocity(), ball.getYVelocity()); hitBrick = brick;
+            if (brick.getHitBox().intersects(nextX)) { // hit in the west or east
+                ball.setVelocity(-ball.getxVelocity(), ball.getyVelocity());
+                hitBrick = brick;
+                System.out.println("Hit Seite");
                 break;
             }
-            if (brick.getHitBox().intersects(nextY)) { // hit in the north or south ball.setVelocity(ball.getXVelocity(), -ball.getYVelocity()); hitBrick = brick;
+            if (brick.getHitBox().intersects(nextY)) { // hit in the north or south
+                ball.setVelocity(ball.getxVelocity(), -ball.getyVelocity());
+                hitBrick = brick;
+                System.out.println("Hit oben/unten");
                 break;
             } }
         if (hitBrick != null) { // if hit brick then remove it and score
             bricks.remove(hitBrick);
-            score += Configuration.BRICK_SCORE; }
+            score ++;
+            System.out.println(score);
+        }
 
         // check physics and rules
         if (ball.getHitBox().intersects(paddle.getHitBox())) { // ball hits paddle
@@ -168,19 +177,19 @@ public class GameLogic extends JPanel {
                 System.out.printf("Game over: You lost. Score = %d%n", score); System.exit(-1);
             } else { restartWithNewBall();
             } }
+        if (score == Configuration.BRICK_SCORE) { // no balls left
+            state = GameState.GAME_OVER;
+            System.out.printf("GG MF: You won!. Score = %d%n", score);
+            System.exit(-1);
+        }
         repaint();
     }
 
     public void restartWithNewBall(){
-
             paddle.setxVelocity(0);
             this.ball = new Ball(this, paddle.xPosition , paddle.yPosition - ((Configuration.PADDLE_Y_SIZE + Configuration.BALL_Y_SIZE)/2),Configuration.BALL_X_SIZE,Configuration.BALL_Y_SIZE,Color.black);
             System.out.println("blub");
             this.ball.setVelocity(-1,-1);
-
-
-
-
     }
 
     private class GameLoop implements ActionListener {
