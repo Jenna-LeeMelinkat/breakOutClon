@@ -91,6 +91,6 @@ public class GameObject {
      * @return Die Hit-Box des Objekts als Rechteck
      */
     public Rectangle getHitBox(){
-        return new Rectangle(xPosition, yPosition, xSize, ySize);
+        return new Rectangle(xPosition - xSize / 2, yPosition - ySize / 2, xSize, ySize);
     }
 }

@@ -12,7 +12,6 @@ public class Ball extends GameObject {
 
     /**
      * Konstruktor für den Ball.
-     *
      * @param gameLogic die Spiellogik, zu der der Ball gehört
      * @param xPosition die X-Koordinate der oberen linken Ecke des Balls
      * @param yPosition die Y-Koordinate der oberen linken Ecke des Balls
@@ -26,7 +25,6 @@ public class Ball extends GameObject {
 
     /**
      * Setzt die Geschwindigkeit des Balls.
-     *
      * @param xVelocity die x-Geschwindigkeit des Balls
      * @param yVelocity die y-Geschwindigkeit des Balls
      */
@@ -37,7 +35,6 @@ public class Ball extends GameObject {
 
     /**
      * Gibt die x-Geschwindigkeit des Balls zurück.
-     *
      * @return die x-Geschwindigkeit des Balls
      */
     public Integer getxVelocity() {
@@ -47,44 +44,42 @@ public class Ball extends GameObject {
 
     /**
      * Gibt die y-Geschwindigkeit des Balls zurück.
-     *
      * @return die y-Geschwindigkeit des Balls
      */
     public Integer getyVelocity() {
-        //yVelocity = Configuration.BALL_VELOCITY_MAX;
         return yVelocity;
     }
 
+    /**
+     * Zeichnet den Ball um den Mittelpunkt.
+     * @param graphics
+     */
     public void render(Graphics graphics) {
         graphics.setColor(color);
         graphics.fillOval(xPosition - xSize / 2, yPosition - ySize / 2, xSize, ySize);
     }
 
+    /**
+     * Ist für die Bewegung des Balls zuständig und ändert die Richtung,
+     * wenn der Ball auf den Rand des Spielfelds trifft.
+     */
     public void move() {
-
         if (xVelocity == null || yVelocity == null){
             xVelocity = 1;
             yVelocity = 1;
         }
         xPosition += xVelocity;
         if (xPosition < 0) {
-            System.out.println("anderer Rand!");
-
             xVelocity = -xVelocity;
         }
         if (xPosition >= Configuration.FIELD_X_SIZE) {
-            System.out.println("Rand!");
-
             xVelocity = -xVelocity;
         }
-
         yPosition += yVelocity;
         if (yPosition < 0) {
             yVelocity = -yVelocity;
         }
         if (yPosition >= Configuration.FIELD_Y_SIZE) {
-            System.out.println("Party!");
-
             yVelocity = -yVelocity;
 
         }
