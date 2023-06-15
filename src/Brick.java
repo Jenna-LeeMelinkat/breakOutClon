@@ -49,7 +49,11 @@ public class Brick extends GameObject {
 
     }
 
-
+    /**
+     * Ist für die Darstellung der Bricks zuständig.
+     * Zeichnet die Darstellung um den Mittelpunkt herum.
+     * @param graphics
+     */
     public void render(Graphics graphics) {
         graphics.setColor(color);
         graphics.fillRect(xPosition - xSize / 2, yPosition - ySize / 2, xSize, ySize); }

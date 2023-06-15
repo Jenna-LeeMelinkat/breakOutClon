@@ -88,6 +88,7 @@ public class GameObject {
 
     /**
      * Gibt die Hit-Box des Objekts als Rechteck zurück.
+     * Die Hit-box geht vom Mittelpunkt des Rechtecks aus.
      * @return Die Hit-Box des Objekts als Rechteck
      */
     public Rectangle getHitBox(){

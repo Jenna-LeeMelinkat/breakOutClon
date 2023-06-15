@@ -108,8 +108,12 @@ public class GameLogic extends JPanel {
 
     /**
      * Bewegt den Ball und das Paddle
-     * Zeichnet und verschiebt die Hitboxen des Balls
-     * Prüft Kollision zwischen Ball/Stein und Ball/Paddle.
+     * Erstellt und verschiebt die Hit-boxen des Balls.
+     * Prüft Kollisionen.
+     * Zählt Punkte.
+     * Setzt den Ball zurück, falls er "herunterfällt".
+     * Zählt verbleibende Bälle.
+     * Beendet das Spiel bei Sieg oder Niederlage.
      */
     private void onTick() {
         ball.move();
@@ -182,6 +186,11 @@ public class GameLogic extends JPanel {
         public void keyPressed(KeyEvent event) { onKeyPressed(event); }
     }
 
+    /**
+     * Verarbeitet die Pfeiltasten "links" und "rechts", wenn diese gedrückt werden
+     * und bewegt damit das Paddle.
+     * @param event
+     */
     public void onKeyPressed(KeyEvent event) {
         int key = event.getKeyCode();
         if (key == KeyEvent.VK_LEFT) { paddle.setxVelocity(-Configuration.PADDLE_VELOCITY);
@@ -190,6 +199,10 @@ public class GameLogic extends JPanel {
         }
     }
 
+    /**
+     * Verarbeitet die Pfeiltasten "links" und "rechts", wenn diese losgelassen werden.
+     * @param event
+     */
     public void onKeyReleased(KeyEvent event) {
         int key = event.getKeyCode();
         if (key == KeyEvent.VK_LEFT || key == KeyEvent.VK_RIGHT) { paddle.setxVelocity(0);
