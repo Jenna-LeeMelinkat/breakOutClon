@@ -4,9 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5c6a9788-742a-40f5-acb7-c65923d44af2" name="Changes" comment="Collision with bricks, winnable">
+    <list default="true" id="5c6a9788-742a-40f5-acb7-c65923d44af2" name="Changes" comment="Collision with bricks, winnable und anzeige">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Configuration.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Configuration.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/GameLogic.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GameLogic.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -68,7 +67,8 @@
       <workItem from="1684397275985" duration="417000" />
       <workItem from="1684845377859" duration="5139000" />
       <workItem from="1686136997374" duration="4029000" />
-      <workItem from="1686237798555" duration="4777000" />
+      <workItem from="1686237798555" duration="6565000" />
+      <workItem from="1686814425078" duration="978000" />
     </task>
     <task id="LOCAL-00001" summary="Test Commit">
       <created>1683726372848</created>
@@ -91,7 +91,14 @@
       <option name="project" value="LOCAL" />
       <updated>1686233634417</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Collision with bricks, winnable und anzeige">
+      <created>1686243181234</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1686243181234</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -112,6 +119,7 @@
     <MESSAGE value="Test Commit" />
     <MESSAGE value="JavaDoc" />
     <MESSAGE value="Collision with bricks, winnable" />
-    <option name="LAST_COMMIT_MESSAGE" value="Collision with bricks, winnable" />
+    <MESSAGE value="Collision with bricks, winnable und anzeige" />
+    <option name="LAST_COMMIT_MESSAGE" value="Collision with bricks, winnable und anzeige" />
   </component>
 </project>

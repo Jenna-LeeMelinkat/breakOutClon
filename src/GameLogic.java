@@ -61,18 +61,17 @@ public class GameLogic extends JPanel {
         int yPosBrick = Configuration.BRICK_Y_SIZE;
 
         while (counter > 0) {
-            if(aktuellerBrickInZeile > 1) {
+            if(aktuellerBrickInZeile > 1) { //if aktuellerBrickinZeile more than one change xPosBrick
                 xPosBrick += Configuration.BRICK_X_SIZE + Configuration.BRICK_PADDING;
             }
-            if (aktuellerBrickInZeile > passendeBricksInBreite) {
+            if (aktuellerBrickInZeile > passendeBricksInBreite) { //if aktuellerBrickinZeile less than passendeBricksInBreite change xPosBrick with leftshift and yPosBrick
                 xPosBrick = fensterPadding + linksShift + Configuration.BRICK_X_SIZE/2;
                 yPosBrick += Configuration.BRICK_Y_SIZE + Configuration.BRICK_PADDING;
                 aktuellerBrickInZeile = 1;
             }
-            if (counter < passendeBricksInBreite && aktuellerBrickInZeile == 1) {
+            if (counter < passendeBricksInBreite && aktuellerBrickInZeile == 1) { //if BrickScore less than passendeBricksInBreite & aktuellerBrickInZeile is one change xPosBrick
                 xPosBrick += (passendeBricksInBreite - counter) * (Configuration.BRICK_X_SIZE + Configuration.BRICK_PADDING) / 2;
-                //xPosBrick = fensterPadding + (fensterbreiteFuerBricks - (counter * (Configuration.BRICK_X_SIZE + Configuration.BRICK_PADDING) - Configuration.BRICK_PADDING)) / 2 + Configuration.BRICK_X_SIZE/2;
-            }
+             }
             Brick brick = new Brick(this, xPosBrick, yPosBrick, Configuration.BRICK_X_SIZE, Configuration.BRICK_Y_SIZE, Color.red);
             bricks.add(brick);
             aktuellerBrickInZeile++;
